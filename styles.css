@@ -1,0 +1,350 @@
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom, #fefaf5, #f3e8d8);
+  color: #5c4b3b;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 180px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #a1866f;
+  margin-bottom: 40px;
+}
+
+.about-section,
+.contact-section,
+.form-section,
+.gallery-section {
+  background-color: #fff8f1;
+  padding: 30px 20px;
+  margin: 40px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #6e5643;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.contact-section h2,
+.form-section h2,
+.gallery-section h2 {
+  font-size: 1.6rem;
+  color: #a86e5a;
+  margin-bottom: 20px;
+}
+
+.contact-section a,
+.form-section a {
+  color: #a86e5a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.form-section input,
+.form-section textarea {
+  padding: 12px;
+  border: 1px solid #d4bfa6;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #5c4b3b;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-section button {
+  background-color: #a86e5a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: #8c5949;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #a1866f;
+}
+
+/* Galería */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.gallery-item {
+  width: 100%;
+  max-width: 200px;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.gallery-item p {
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #6e5643;
+}
+
+.btn-pedir {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pedir:hover {
+  background-color: #1ebe5d;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 4px;
+  color: white;
+  z-index: 2;
+}
+
+.tag.nuevo {
+  background-color: #f7a600;
+}
+
+.tag.rebaja {
+  background-color: #e74c3c;
+}
+
+/* Lightbox */
+#lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 140px;
+  }
+
+  .tagline,
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .gallery-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-pedir {
+    font-size: 0.95rem;
+    padding: 10px 15px;
+  }
+}
+
+
+/* Animación de hojas */
+.leaf-animation {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.leaf {
+  position: absolute;
+  top: -50px;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/6692/6692378.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall 10s linear infinite;
+  opacity: 0.7;
+}
+
+.leaf:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.leaf:nth-child(2) { left: 30%; animation-delay: 2s; animation-duration: 10s; }
+.leaf:nth-child(3) { left: 50%; animation-delay: 4s; animation-duration: 14s; }
+.leaf:nth-child(4) { left: 70%; animation-delay: 1s; animation-duration: 11s; }
+.leaf:nth-child(5) { left: 90%; animation-delay: 3s; animation-duration: 13s; }
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(50vh) rotate(180deg); }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25d366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Sección de catálogo */
+.catalog-section {
+  background-color: #fff8f1;
+  padding: 30px 20px;
+  margin: 40px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.catalog-section h2 {
+  font-size: 1.6rem;
+  color: #a86e5a;
+  margin-bottom: 10px;
+}
+
+.catalog-section p {
+  font-size: 1rem;
+  color: #6e5643;
+  margin-bottom: 20px;
+}
+
+.btn-catalogo {
+  background-color: #a86e5a;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-catalogo:hover {
+  background-color: #8c5949;
+}
